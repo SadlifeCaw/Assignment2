@@ -38,7 +38,7 @@ namespace As2
             SurName = surName;
         }
 
-        public override string ToString() => ("Id: " + Id + " Name: " + GivenName + " " + SurName + " StartDate: " + StartDate + " EndDate: " + EndDate + " GraduationDate: " + GraduationDate + " Status = " + Status);
+        public override string ToString() => ("Id: " + Id + " Name: " + GivenName + " " + SurName + " StartDate: " + StartDate.ToString("dd/MM/yyyy HH:mm:ss") + " EndDate: " + EndDate.ToString("dd/MM/yyyy HH:mm:ss") + " GraduationDate: " + GraduationDate.ToString("dd/MM/yyyy HH:mm:ss") + " Status = " + Status);
         }
     
 
@@ -65,7 +65,7 @@ namespace As2
         public DateTime EndDate{get; init;}
         public DateTime GraduationDate{get; init;}
 
-        public override string ToString() => ("Id: " + Id + " Name: " + GivenName + " " + SurName + " StartDate: " + StartDate + " EndDate: " + EndDate + " GraduationDate: " + GraduationDate + " Status = " + Status);
+        public override string ToString() => ("Id: " + Id + " Name: " + GivenName + " " + SurName + " StartDate: " + StartDate.ToString("dd/MM/yyyy HH:mm:ss") + " EndDate: " + EndDate.ToString("dd/MM/yyyy HH:mm:ss") + " GraduationDate: " + GraduationDate.ToString("dd/MM/yyyy HH:mm:ss") + " Status = " + Status);
     }
 
     public enum Status
