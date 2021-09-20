@@ -6,17 +6,9 @@ using System;
 
 namespace As2
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {   
-            // Student stud = new Student(13, "d", "f");
-            // DateTime date1 = new DateTime(2015, 12, 25);
-            // stud.GraduationDate = date1;
-            // System.Console.WriteLine(stud.ToString());
-        }
+    public class Program{
+        public static void Main(string[] args){}
     }
-
     public class Student
     {
         public int Id {get;}
@@ -80,6 +72,8 @@ namespace As2
     {
         New, Active, Dropout, Graduated
     }
+
+    
 }
 
 
