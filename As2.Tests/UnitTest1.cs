@@ -70,10 +70,10 @@ namespace As2.Tests
             Student student = new Student(19, "Andy", "Graduated");
 
             // When
-            string expected = "Id: 19 Name: Andy Graduated StartDate: 31/12/2018 16.00.00 EndDate: 20/09/2021 12.00.00 GraduationDate: 20/09/2021 12.00.00 Status = Graduated";
+            string expected = "Id: 19 Name: Andy Graduated StartDate: 31/12/2018 16.00.00 EndDate: 19/09/2021 12.00.00 GraduationDate: 19/09/2021 12.00.00 Status = Graduated";
             DateTime startDate = new DateTime(2018, 12, 31, 16, 0, 0); // 12/31/2018 16:00:00
-            DateTime endDate = new DateTime(2021, 09, 20, 12, 0, 0); // 22/09/2022 12:00:00
-            DateTime gradDate = new DateTime(2021, 09, 20, 12, 0, 0); // 24/09/2022 12:00:00
+            DateTime endDate = new DateTime(2021, 09, 19, 12, 0, 0); // 22/09/2022 12:00:00
+            DateTime gradDate = new DateTime(2021, 09, 19, 12, 0, 0); // 24/09/2022 12:00:00
             student.StartDate = startDate;
             student.EndDate = endDate;
             student.GraduationDate = gradDate;
