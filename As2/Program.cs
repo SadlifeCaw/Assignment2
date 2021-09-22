@@ -6,25 +6,30 @@ using System;
 
 namespace As2
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {   
-            // Student stud = new Student(13, "d", "f");
-            // DateTime date1 = new DateTime(2015, 12, 25);
-            // stud.GraduationDate = date1;
-            // System.Console.WriteLine(stud.ToString());
-        }
+    public class Program{
+        public static void Main(string[] args){}
     }
-
     public class Student
     {
         public int Id {get;}
         public string GivenName{get;}
         public string SurName{get;}
-        public Status Status{get;}
-        public DateTime StartDate;
-        public DateTime EndDate;
+        public Status Status{
+            get {
+                if (StartDate.CompareTo(DateTime.Now) > 0 && (StartDate - DateTime.Now).TotalDays <= 90){
+                    return Status.New;
+                } else if (EndDate.CompareTo(DateTime.Now) > 0 && GraduationDate.CompareTo(DateTime.Now) > 0) {
+                    return Status.Active;
+                } else if (EndDate.CompareTo(GraduationDate) < 0) {
+                    return Status.Dropout;
+                } else {
+                    return Status.Graduated;
+                }
+            
+             }
+        }
+        public DateTime StartDate{get; set;}
+        public DateTime EndDate{get; set;}
         public DateTime GraduationDate{get; set;}
 
         public Student(int id, string givenName, string surName) {
@@ -33,24 +38,42 @@ namespace As2
             SurName = surName;
         }
 
-        public override string ToString() => ("Id: " + Id + " Name: " + GivenName + " " + SurName + " Status: " + Status);
-    }
+        public override string ToString() => ("Id: " + Id + " Name: " + GivenName + " " + SurName + " StartDate: " + StartDate.ToString("dd/MM/yyyy HH.mm.ss") + " EndDate: " + EndDate.ToString("dd/MM/yyyy HH.mm.ss") + " GraduationDate: " + GraduationDate.ToString("dd/MM/yyyy HH.mm.ss") + " Status = " + Status);
+        }
+    
 
-    public class ImmutableStudent
+    public record ImmutableStudent
     {
         public int Id{get; init;}
         public string GivenName{get; init;}
-        public string Surname{get; init;}
-        public Status Status{get; init;}
+        public string SurName{get; init;}
+        public Status Status{
+            get {
+                if (StartDate.CompareTo(DateTime.Now) > 0 && (StartDate - DateTime.Now).TotalDays <= 90){
+                    return Status.New;
+                } else if (EndDate.CompareTo(DateTime.Now) > 0 && GraduationDate.CompareTo(DateTime.Now) > 0) {
+                    return Status.Active;
+                } else if (EndDate.CompareTo(GraduationDate) < 0) {
+                    return Status.Dropout;
+                } else {
+                    return Status.Graduated;
+                }
+            
+             }
+        }
         public DateTime StartDate{get; init;}
         public DateTime EndDate{get; init;}
         public DateTime GraduationDate{get; init;}
 
-        public string ToString() => ("Id: " + Id + " Name: " + GivenName + " " + Surname + " Status: " + Status);
+        public override string ToString() => ("Id: " + Id + " Name: " + GivenName + " " + SurName + " StartDate: " + StartDate.ToString("dd/MM/yyyy HH.mm.ss") + " EndDate: " + EndDate.ToString("dd/MM/yyyy HH.mm.ss") + " GraduationDate: " + GraduationDate.ToString("dd/MM/yyyy HH.mm.ss") + " Status = " + Status);
     }
 
     public enum Status
     {
         New, Active, Dropout, Graduated
     }
+
+    
 }
+
+
